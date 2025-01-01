@@ -19,7 +19,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 IMG = os.getenv('IMG')
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = SECRET_KEY
+# app.config['SECRET_KEY'] = SECRET_KEY
 Bootstrap(app)
 
 
