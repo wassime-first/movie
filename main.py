@@ -98,8 +98,9 @@ def register():
             username = form.username.data
             email = form.email.data
             password = form.password.data
-            movie_table.add_user(username, email, generate_password_hash(password, salt_length=8))
             new_user = User(username=username, email=email, password=generate_password_hash(password, salt_length=8))
+            session.add(new_user)
+            session.commit()
             login_user(new_user)
             return redirect(url_for("home"))
     return render_template("register.html", form=form, logged_in=current_user.is_authenticated)
