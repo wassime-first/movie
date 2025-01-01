@@ -46,7 +46,7 @@ class Movie(UserMixin, Base):
     rating = Column(FLOAT, nullable=False)
     ranking = Column(INTEGER, nullable=False)
     review = Column(String(1000), nullable=False)
-    img_url = Column(String(20000), nullable=False)
+    img_url = Column(String(16383), nullable=False)
     user_id = Column(INTEGER, ForeignKey('users-movie.id'))
     user = relationship("User", back_populates="movies")
 
