@@ -1,0 +1,38 @@
+{% block header %}
+<nav  class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="text-white container">
+        <a class="navbar-brand text-primary" href="{{url_for('home')}}">Movies</a>
+        <button class="navbar-toggler navbar-toggler-right text-dark" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                {% if logged_in %}
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="{{ url_for('home') }}">Explore</a>
+                </li>
+                <li class="nav-item">
+                    <a style="" class="nav-link text-dark" href="{{ url_for('my_movies') }}">My Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="{{ url_for('logout') }}">Log Out</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="{{ url_for('home') }}">Explore</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="{{ url_for('login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href="{{ url_for('register') }}">Register</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
