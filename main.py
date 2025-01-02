@@ -71,6 +71,12 @@ def home():
     return render_template("explore.html", users=all_users, logged_in=current_user.is_authenticated)
 
 
+@app.route("/explore/<int:id>")
+def explore(id):
+    user = movie_table.find_user_by_id(id)
+    return render_template("view.html", user=user, logged_in=current_user.is_authenticated)
+
+
 @app.route("/mymovies", methods=["POST", "GET"])
 @login_required
 def my_movies():
@@ -80,7 +86,6 @@ def my_movies():
     for movie in movies:
         movie_table.update_movie_ranking(current_user.id, movie.id, n)
         n += 1
-
 
     return render_template("index.html", movies=movies, logged_in=current_user.is_authenticated)
 

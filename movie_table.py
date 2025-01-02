@@ -105,6 +105,10 @@ def all_users():
     return session.query(User).all()
 
 
+def find_user_by_id(id):
+    return session.query(User).filter_by(id=id).first()
+
+
 def add_user(username, email, password):
     new = User(username=username, email=email, password=password)
     session.add(new)

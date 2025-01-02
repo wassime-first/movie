@@ -2,6 +2,7 @@
 
 {% block styles %}
 {{ super() }}
+<link rel="icon" href="./static/img/favicon.ico" >
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
@@ -50,6 +51,7 @@
             <img src="./static/img/like.png"> {{ user.likes |length  }} Likes
             </button>
             </form>
+            <a href="{{url_for('explore', id=user.id)}}" class="button">Explore</a>
         </div>
 
 
@@ -57,8 +59,6 @@
     {% endif %}
     {% endfor %}
 
-</div>
-<div class="container text-center">
 </div>
 {% include "footer.html" %}
 
