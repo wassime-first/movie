@@ -184,8 +184,9 @@ def select():
         print(release_date)
         overview = data[2]
         img_url = data[3]
-        movie_table.add_movie(user=current_user.id, year=release_date, description=overview, title=title,
-                              img_url=img_url, rating=0, review="")
+        if current_user.movies <= 10:
+            movie_table.add_movie(user=current_user.id, year=release_date, description=overview, title=title,
+                                  img_url=img_url, rating=0, review="")
         return redirect(url_for("home"))
     return render_template("select.html", logged_in=current_user.is_authenticated)
 
