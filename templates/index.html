@@ -50,7 +50,7 @@
     {% endfor %}
 {% endif %}
 </div>
-{% if movies |length <= 10 %}
+{% if movies |length < 10 %}
 <div class="container text-center add">
 <a href="{{url_for('add')}}" class="button">Add Movie</a>
 </div>
